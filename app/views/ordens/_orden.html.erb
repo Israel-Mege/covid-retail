@@ -1,0 +1,20 @@
+<div id="<%= dom_id orden %>" class="card">
+  <div class="card-body">
+    <h5 class="card-title">Orden</h5>
+    <p class="card-text">
+      <i class="bi bi-box-seam"></i> Producto: <%= orden.producto.nombre %>
+    </p>
+    <p class="card-text">
+      <i class="bi bi-person"></i> Cliente: <%= orden.cliente.nombre %>
+    </p>
+    <p class="card-text">
+      <i class="bi bi-credit-card"></i> Tipo de Pago: <%= orden.tipo_pago.nombre %>
+    </p>
+    <p class="card-text">
+      <i class="bi bi-cash"></i> Monto Total: <%= orden.monto_total %>
+    </p>
+    <p class="card-text">
+      <i class="bi bi-calendar"></i> Fecha de Orden: <%= orden.fecha_orden %>
+    </p>
+  </div>
+</div>

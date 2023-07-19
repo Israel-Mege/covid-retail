@@ -1,0 +1,42 @@
+<%= form_with(model: orden) do |form| %>
+  <% if orden.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(orden.errors.count, "error") %> prohibited this orden from being saved:</h2>
+
+      <ul>
+        <% orden.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :producto_id, class: "form-label" %>
+    <%= form.collection_select :producto_id, Producto.where("cantidad > 0"), :id, :nombre, { prompt: "Select a product" }, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :cliente_id, class: "form-label" %>
+    <%= form.collection_select :cliente_id, Cliente.all, :id, :nombre, { prompt: "Select a client" }, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :tipo_pago_id, class: "form-label" %>
+    <%= form.collection_select :tipo_pago_id, TipoPago.all, :id, :nombre, { prompt: "Select a payment type" }, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :monto_total, class: "form-label" %>
+    <%= number_field_tag :monto_total, nil, step: 1, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :fecha_orden, class: "form-label" %>
+    <%= form.date_field :fecha_orden, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
