@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @producto %>
+
+<div>
+  <% if current_user.admin? %>
+  <%= link_to "Edit this producto", edit_producto_path(@producto) %> |
+    <%= button_to "Destroy this producto", @producto, method: :delete %>
+  <% end %>
+  <%= link_to "Back to productos", productos_path %>
+
+
+</div>

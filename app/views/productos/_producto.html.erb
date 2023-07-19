@@ -1,0 +1,22 @@
+<div class="row">
+  <% @productos.each do |producto| %>
+    <div class="col-md-4 mb-4">
+      <div id="<%= dom_id producto %>" class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= producto.nombre %></h5>
+          <p class="card-text">
+            <i class="bi bi-cash"></i> Precio: <%= producto.precio %>
+          </p>
+          <p class="card-text">
+            <i class="bi bi-card-text"></i> Descripción: <%= producto.descripcion %>
+          </p>
+          <p class="card-text">
+            <i class="bi bi-cart4"></i> Cantidad: <%= producto.cantidad %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= will_paginate @productos %>

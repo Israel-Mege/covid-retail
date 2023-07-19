@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Productos</h1>
+
+<div id="productos">
+  <% @productos.each do |producto| %>
+    <%= render partial: "producto", locals: { producto: producto } %>
+    <p>
+      <%= link_to "Show this producto", producto %>
+    </p>
+  <% end %>
+</div>
+
+<% if current_user&.admin? %>
+  <%= link_to "New producto", new_producto_path %>
+<% end %>
+
+<%= will_paginate @productos %>

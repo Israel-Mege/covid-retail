@@ -1,0 +1,13 @@
+<h1>Productos contra el covid</h1>
+
+<div class="card">
+  <div class="card-body">
+    <% @productos.each do |producto| %>
+      <div class="mb-3">
+        <p class="mb-0"><strong>Nombre:</strong> <%= producto.nombre %></p>
+        <p class="mb-0"><strong>Precio:</strong> <%= producto.precio %></p>
+        <p class="mb-0"><strong>Descripción:</strong> <%= producto.descripcion %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
